@@ -1,5 +1,8 @@
+import process from 'process';
+
 const parseEnv = () => {
-    // Write your code here 
+    const necessaryVars = Object.entries(process.env).filter(prop => prop[0].startsWith('RSS_'))
+    console.log(necessaryVars.map(prop => prop.join('=')).join('; '));
 };
 
 parseEnv();
