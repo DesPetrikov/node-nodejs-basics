@@ -2,7 +2,7 @@ import path from 'path';
 import { release, version } from 'os';
 import { createServer as createServerHttp } from 'http';
 import { fileURLToPath } from 'node:url';
-import { readFileSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import './files/c.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 const random = Math.random();
 
 let unknownObject = JSON.parse(
-    readFileSync(
+    await readFile(
       path.join(__dirname, 'files', `${random > 0.5 ? 'a.json' : 'b.json'}`)
     )
   );
