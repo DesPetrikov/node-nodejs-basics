@@ -8,4 +8,4 @@ const spawnChildProcess = async (args) => {
   fork(pathToChild, args)
 };
 
-spawnChildProcess();
+spawnChildProcess(/*Type array of argument here*/);

@@ -14,7 +14,6 @@ const compress = async () => {
   const destination = createWriteStream(destPath);
   const pipe = promisify(pipeline);
   await pipe(source, gzip, destination);
-  
 };
 
 await compress();
